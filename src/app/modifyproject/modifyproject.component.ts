@@ -4,7 +4,6 @@ import { Projectservice } from '../projectservice';
 import { Project } from '../project';
 import { Client } from '../client';
 import { ClientinfoService } from '../clientinfo.service';
-import { QueryparamsService } from '../queryparams.service';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
@@ -18,7 +17,6 @@ export class ModifyprojectComponent implements OnInit {
     private proServ: Projectservice,
     private router: Router,
     private cliService: ClientinfoService,
-    private queryParamService: QueryparamsService
   ) {}
   pro: Project = new Project(0, '', '', 0);
   prono: number = 0;
