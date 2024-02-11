@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="card" style="margin-top: 100px">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Client Info</p>
+            </div>
+            <div class="col-md-6" style="text-align: right">
+              <button routerLink="/clientinfo" class="btn btn-info">
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <tr>
+              <th>Client Id</th>
+              <th>Client Name</th>
+              <th>Client Address</th>
+              <th>Client Email</th>
+              <th>Client Password</th>
+            </tr>
+            <tr>
+              <td>{{ cli.id }}</td>
+              <td>{{ cli.ClientName }}</td>
+              <td>{{ cli.Address }}</td>
+              <td>{{ cli.Email }}</td>
+              <td>{{ cli.Password }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

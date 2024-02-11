@@ -1,0 +1,79 @@
+<h1 mat-dialog-title style="text-align: center">Add Task</h1>
+<div mat-dialog-content>
+  <form #taskForm="ngForm" (ngSubmit)="saveTask(taskForm)">
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Task Id</mat-label>
+      <input
+        matInput
+        placeholder="ID"
+        [(ngModel)]="task.id"
+        name="taskid"
+        #tid="ngModel"
+        required
+      />
+    </mat-form-field>
+    <span class="error" *ngIf="tid.touched && tid.invalid">
+      Task Id should not be blank
+    </span>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Task Name</mat-label>
+      <input
+        matInput
+        placeholder="Task Name"
+        [(ngModel)]="task.TaskName"
+        name="taskname"
+        #tn="ngModel"
+        required
+      />
+    </mat-form-field>
+    <span class="error" *ngIf="tn.touched && tn.invalid">
+      Task Name should not be blank
+    </span>
+
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Task Description</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="task.TaskDescription"
+        name="taskdesc"
+        #cad="ngModel"
+        required
+      ></textarea>
+    </mat-form-field>
+    <span class="error" *ngIf="cad.touched && cad.invalid">
+      Task Description should not be blank
+    </span>
+
+    <br />
+    <mat-form-field>
+      <mat-label>Choose Project</mat-label>
+      <mat-select
+        [(ngModel)]="task.ProjectID"
+        name="cpro"
+        #cp="ngModel"
+        required
+      >
+        <mat-option *ngFor="let item of prodetails" [value]="item.id">{{
+          item.ProjectName
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <span class="error" *ngIf="cp.touched && cp.invalid">
+      Choose at least one project
+    </span>
+    <div mat-dialog-actions align="end">
+      <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+      <button
+        style="margin-left: 8px"
+        mat-raised-button
+        color="primary"
+        [disabled]="taskForm.invalid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

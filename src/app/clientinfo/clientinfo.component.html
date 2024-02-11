@@ -1,0 +1,191 @@
+<div class="container-fluid" style="margin-top: 50px">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h1 class="card-title" style="text-align: center">Add Client</h1>
+
+            <form #regcli="ngForm" (ngSubmit)="saveClient(regcli)">
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <mat-label>ID</mat-label>
+                    <input
+                      matInput
+                      type="text"
+                      [(ngModel)]="cli.id"
+                      name="cliid"
+                      #cid="ngModel"
+                      required
+                    />
+                  </mat-form-field>
+                  <br />
+                  <span class="error" *ngIf="cid.touched && cid.invalid">
+                    Client Id should not be blank
+                  </span>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <mat-label>Client Name</mat-label>
+                    <input
+                      matInput
+                      [(ngModel)]="cli.ClientName"
+                      name="cliname"
+                      #cnm="ngModel"
+                      required
+                    />
+                  </mat-form-field>
+                  <br />
+                  <span class="error" *ngIf="cnm.touched && cnm.invalid">
+                    Client Name should not be blank
+                  </span>
+                </div>
+              </div>
+
+              <br />
+
+              <mat-form-field>
+                <mat-label>Address</mat-label>
+                <textarea
+                  matInput
+                  [(ngModel)]="cli.Address"
+                  name="cliadd"
+                  #cad="ngModel"
+                  required
+                ></textarea>
+              </mat-form-field>
+              <br />
+              <span class="error" *ngIf="cad.touched && cad.invalid">
+                Address should not be blank
+              </span>
+
+              <br />
+
+              <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="cli.Email"
+                  name="cliemail"
+                  #cem="ngModel"
+                  required
+                />
+              </mat-form-field>
+              <br />
+              <span class="error" *ngIf="cem.touched && cem.invalid">
+                Email-Id should not be blank
+              </span>
+
+              <br />
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input
+                      matInput
+                      [(ngModel)]="cli.Password"
+                      name="clipass"
+                      #cpwd="ngModel"
+                      required
+                    />
+                  </mat-form-field>
+                  <br />
+                  <span class="error" *ngIf="cpwd.touched && cpwd.invalid">
+                    Password should not be blank
+                  </span>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <mat-label>Repeat Password</mat-label>
+                    <input
+                      matInput
+                      type="password"
+                      [(ngModel)]="repeatPassword"
+                      name="cliRepeatPass"
+                      required
+                      #crpwd="ngModel"
+                    />
+                  </mat-form-field>
+                  <p>{{ msg }}</p>
+                  <br />
+                  <span class="error" *ngIf="crpwd.touched && crpwd.invalid">
+                    Repeat Password should not be blank
+                  </span>
+                </div>
+              </div>
+
+              <br />
+              <div style="text-align: center">
+                <input
+                  type="submit"
+                  value="Add Client"
+                  class="btn btn-success"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8" style="margin-top: 50px; padding-bottom: 20px">
+      <table mat-table [dataSource]="clidetails" class="mat-elevation-z8">
+        <ng-container matColumnDef="ID">
+          <th mat-header-cell *matHeaderCellDef>ID.</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="ClientName">
+          <th mat-header-cell *matHeaderCellDef>ClientName</th>
+          <td mat-cell *matCellDef="let element">{{ element.ClientName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Address">
+          <th mat-header-cell *matHeaderCellDef>Address</th>
+          <td mat-cell *matCellDef="let element">{{ element.Address }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let element">{{ element.Email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Password">
+          <th mat-header-cell *matHeaderCellDef>Password</th>
+          <td mat-cell *matCellDef="let element">{{ element.Password }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Operations">
+          <th mat-header-cell *matHeaderCellDef>Operations</th>
+          <td mat-cell *matCellDef="let element">
+            <input
+              type="button"
+              value="View"
+              class="btn btn-info"
+              (click)="viewClient(element.id)"
+            />
+            &nbsp;&nbsp;
+
+            <input
+              type="button"
+              value="Modify"
+              class="btn btn-success"
+              (click)="modifyClient(element.id)"
+            />
+
+            &nbsp;&nbsp;
+            <input
+              type="button"
+              value="Delete"
+              class="btn btn-danger"
+              (click)="delCli(element.id)"
+            />
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>

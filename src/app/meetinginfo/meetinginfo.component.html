@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div style="text-align: right; margin-right: 30px; margin-top: 50px">
+    <button mat-button (click)="openDialog()" mat-raised-button color="primary">
+      Add New Meeting
+    </button>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-10" style="margin-top: 70px; padding-bottom: 20px">
+      <h1 style="text-align: center">Meetings</h1>
+
+      <table mat-table [dataSource]="meetingdetails" class="mat-elevation-z8">
+        <ng-container matColumnDef="ID">
+          <th mat-header-cell *matHeaderCellDef>ID.</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="MeetingTopic">
+          <th mat-header-cell *matHeaderCellDef>Meeting Topic</th>
+          <td mat-cell *matCellDef="let element">{{ element.MeetingTopic }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="No_of_Persons">
+          <th mat-header-cell *matHeaderCellDef>No_of_Persons</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.No_of_Persons }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Start_Date_Time">
+          <th mat-header-cell *matHeaderCellDef>Start_Date_Time</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.Start_Date_Time }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ClientID">
+          <th mat-header-cell *matHeaderCellDef>ClientID</th>
+          <td mat-cell *matCellDef="let element">{{ element.ClientID }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">{{ element.Status }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Operations">
+          <th mat-header-cell *matHeaderCellDef>Operations</th>
+          <td mat-cell *matCellDef="let element">
+            <input
+              type="button"
+              value="View"
+              class="btn btn-info"
+              (click)="viewMeeting(element.id)"
+            />
+            &nbsp;&nbsp;
+
+            <input
+              type="button"
+              value="Modify"
+              class="btn btn-success"
+              (click)="modifyMeeting(element.id)"
+            />
+
+            &nbsp;&nbsp;
+            <input
+              type="button"
+              value="Delete"
+              class="btn btn-danger"
+              (click)="delMeeting(element.id)"
+            />
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>

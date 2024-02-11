@@ -1,0 +1,30 @@
+/* table {
+    width: 100%;
+  } */
+.equal-height {
+  display: flex;
+}
+
+.equal-height > .col-md-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+.equal-height > .col-md-6 .mat-elevation-z8 {
+  flex-grow: 1;
+  margin-bottom: 50px; /* Adjust as needed */
+  height: 100%;
+}
+
+.mat-table {
+  width: 100%; /* Ensure the table takes full width */
+  table-layout: fixed; /* Fix the table layout */
+}
+
+.mat-table td,
+.mat-table th {
+  white-space: nowrap; /* Prevent line breaks in cells */
+  overflow: hidden; /* Hide overflow content */
+  text-overflow: ellipsis; /* Show ellipsis for overflow text */
+  padding: 8px; /* Adjust as needed */
+}

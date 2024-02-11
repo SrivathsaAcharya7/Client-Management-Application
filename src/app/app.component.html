@@ -1,0 +1,49 @@
+<nav mat-tab-nav-bar *ngIf="shouldShowNavBar()" ngClass="tabs">
+  <a
+    mat-tab-link
+    routerLink="/home"
+    routerLinkActive="active-link"
+    class="tab-link"
+    >Home</a
+  >
+  <a
+    mat-tab-link
+    routerLink="/clientinfo"
+    routerLinkActive="active-link"
+    class="tab-link"
+    >ClientInfo</a
+  >
+  <a
+    mat-tab-link
+    routerLink="/projectsinfo"
+    routerLinkActive="active-link"
+    class="tab-link"
+    >ProjectsInfo</a
+  >
+  <a
+    mat-tab-link
+    routerLink="/projecttask"
+    routerLinkActive="active-link"
+    class="tab-link"
+    >TaskInfo</a
+  >
+  <a
+    mat-tab-link
+    routerLink="/meetinginfo"
+    routerLinkActive="active-link"
+    class="tab-link"
+    >MeetingInfo</a
+  >
+  <a
+    mat-tab-link
+    routerLink="/login"
+    routerLinkActive="active-link"
+    class="tab-link"
+    >Logout</a
+  >
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>
+<router-outlet></router-outlet>
+<ng-toast></ng-toast>

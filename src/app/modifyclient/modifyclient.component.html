@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="card" style="margin-top: 50px">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Modify Client Details</p>
+            </div>
+            <div class="col-md-6" style="text-align: right">
+              <button routerLink="/clientinfo" class="btn btn-info">
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form #modCus="ngForm" (ngSubmit)="updatecli()">
+            <label>Client Id </label>
+            <input
+              type="number"
+              [(ngModel)]="cli.id"
+              name="cliid"
+              class="form-control"
+              disabled
+            />
+            <label>Client Name </label>
+            <input
+              type="text"
+              [(ngModel)]="cli.ClientName"
+              name="cliname"
+              class="form-control"
+            />
+            <label>Client Address</label>
+            <textarea
+              [(ngModel)]="cli.Address"
+              name="cliaddress"
+              class="form-control"
+              rows="5"
+              cols="50"
+            ></textarea>
+            <label>Client Email</label>
+            <input
+              type="email"
+              [(ngModel)]="cli.Email"
+              name="climail"
+              class="form-control"
+            />
+            <label>Client password</label>
+            <input
+              type="text"
+              [(ngModel)]="cli.Password"
+              name="clipass"
+              class="form-control"
+            />
+
+            <br />
+            <input
+              type="submit"
+              value="Update Client"
+              class="btn btn-success"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

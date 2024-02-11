@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="card" style="margin-top: 50px">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Modify Project Details</p>
+            </div>
+            <div class="col-md-6" style="text-align: right">
+              <button routerLink="/projectsinfo" class="btn btn-info">
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form #modus="ngForm" (ngSubmit)="updatepro()">
+            <label>Project Id </label>
+            <input
+              type="number"
+              [(ngModel)]="pro.id"
+              name="proid"
+              class="form-control"
+              disabled
+            />
+            <label>Project Name </label>
+            <input
+              type="text"
+              [(ngModel)]="pro.ProjectName"
+              name="proname"
+              class="form-control"
+            />
+            <label>Duration</label>
+            <input
+              type="text"
+              [(ngModel)]="pro.Duration"
+              name="produration"
+              class="form-control"
+            />
+            <label>Client ID</label>
+            <br />
+            <mat-form-field>
+              <mat-label>Choose Client ID</mat-label>
+              <mat-select [(ngModel)]="pro.ClientID" name="cliidname">
+                <mat-option *ngFor="let item of clidetails" [value]="item.id">{{
+                  item.id
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <br />
+            <input
+              type="submit"
+              value="Update Project"
+              class="btn btn-success"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

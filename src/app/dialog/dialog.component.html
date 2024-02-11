@@ -1,0 +1,82 @@
+<h1 mat-dialog-title style="text-align: center">Add Project</h1>
+<div mat-dialog-content>
+  <form #projectForm="ngForm" (ngSubmit)="saveProject(projectForm)">
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Project Id</mat-label>
+      <input
+        matInput
+        placeholder="ID"
+        [(ngModel)]="pro.id"
+        name="pid"
+        #prid="ngModel"
+        required
+      />
+    </mat-form-field>
+    <br />
+    <span class="error" *ngIf="prid.touched && prid.invalid">
+      Project Id should not be blank
+    </span>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Project Name</mat-label>
+      <input
+        matInput
+        placeholder="Project Name"
+        [(ngModel)]="pro.ProjectName"
+        name="pname"
+        #pnm="ngModel"
+        required
+      />
+    </mat-form-field>
+    <br />
+    <span class="error" *ngIf="pnm.touched && pnm.invalid">
+      Project Name should not be blank
+    </span>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Duration</mat-label>
+      <input
+        matInput
+        placeholder="Duration"
+        [(ngModel)]="pro.Duration"
+        name="pdur"
+        #pd="ngModel"
+        required
+      />
+    </mat-form-field>
+    <br />
+    <span class="error" *ngIf="pd.touched && pd.invalid">
+      Project Duration should not be blank
+    </span>
+
+    <mat-form-field>
+      <mat-label>Enter Client ID</mat-label>
+      <mat-select
+        [(ngModel)]="pro.ClientID"
+        name="pclientid"
+        #pcid="ngModel"
+        required
+      >
+        <mat-option *ngFor="let item of clidetails" [value]="item.id">{{
+          item.id
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <span class="error" *ngIf="pcid.touched && pcid.invalid">
+      Client Id should not be blank
+    </span>
+    <div mat-dialog-actions align="end">
+      <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+      <button
+        style="margin-left: 8px"
+        mat-raised-button
+        color="primary"
+        [disabled]="projectForm.invalid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

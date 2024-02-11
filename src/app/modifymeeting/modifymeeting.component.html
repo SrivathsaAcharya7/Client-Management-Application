@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="card" style="margin-top: 50px">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Modify Meeting Details</p>
+            </div>
+            <div class="col-md-6" style="text-align: right">
+              <button routerLink="/meetinginfo" class="btn btn-info">
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form #modmeet="ngForm" (ngSubmit)="updatemt()">
+            <label>Meeting Id </label>
+            <input
+              type="number"
+              [(ngModel)]="mtd.id"
+              name="mtid"
+              class="form-control"
+              disabled
+            />
+            <label>Meeting Topic </label>
+            <input
+              type="text"
+              [(ngModel)]="mtd.MeetingTopic"
+              name="mttp"
+              class="form-control"
+            />
+            <label>No_of_Persons </label>
+            <input
+              type="number"
+              [(ngModel)]="mtd.No_of_Persons"
+              name="mtnp"
+              class="form-control"
+            />
+
+            <mat-form-field>
+              <mat-label>Start Date Time</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                [(ngModel)]="mtd.Start_Date_Time"
+                name="mtdp"
+              />
+              <mat-hint>DD/MM/YYYY</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <br />
+              <hr />
+              <input
+                matInput
+                [ngxTimepicker]="timepicker"
+                placeholder="HH:mm"
+                [(ngModel)]="selectedTime"
+                name="mttp"
+              />
+              <mat-icon matSuffix (click)="timepicker.open()"
+                >schedule</mat-icon
+              >
+              <ngx-material-timepicker #timepicker></ngx-material-timepicker>
+            </mat-form-field>
+
+            <br />
+
+            <label>ClientID</label>
+            <input
+              type="number"
+              [(ngModel)]="mtd.ClientID"
+              name="mtcliid"
+              class="form-control"
+            />
+            <mat-form-field>
+              <mat-label>Status</mat-label>
+              <mat-select
+                [(ngModel)]="mtd.Status"
+                name="mtstatus"
+                #mtst="ngModel"
+                required
+              >
+                <mat-option value="Open">Open</mat-option>
+                <mat-option value="Close">Close</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <br />
+            <input
+              type="submit"
+              value="Update MeetingInfo"
+              class="btn btn-success"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

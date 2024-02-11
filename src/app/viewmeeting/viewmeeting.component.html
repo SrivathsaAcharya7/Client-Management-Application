@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="card" style="margin-top: 100px">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Meeting Info</p>
+            </div>
+            <div class="col-md-6" style="text-align: right">
+              <button routerLink="/meetinginfo" class="btn btn-info">
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <tr>
+              <th>Meeting Id</th>
+              <th>Meeting Topic</th>
+              <th>Number of Persons</th>
+              <th>Start Date and Time</th>
+              <th>Client Id</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>{{ mt.id }}</td>
+              <td>{{ mt.MeetingTopic }}</td>
+              <td>{{ mt.No_of_Persons }}</td>
+              <td>{{ mt.Start_Date_Time }}</td>
+              <td>{{ mt.ClientID }}</td>
+              <td>{{ mt.Status }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<h1 mat-dialog-title style="text-align: center">Add Meeting</h1>
+<div mat-dialog-content>
+  <form #meetingForm="ngForm" (ngSubmit)="saveMeeting(meetingForm)">
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Meeting Id</mat-label>
+      <input
+        matInput
+        placeholder="ID"
+        [(ngModel)]="mt.id"
+        name="mtid"
+        #mid="ngModel"
+        required
+      />
+    </mat-form-field>
+    <span class="error" *ngIf="mid.touched && mid.invalid">
+      Meeting Id should not be blank
+    </span>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Meeting Topic</mat-label>
+      <input
+        matInput
+        placeholder="Meeting Topic"
+        [(ngModel)]="mt.MeetingTopic"
+        name="mttopic"
+        #mtt="ngModel"
+        required
+      />
+    </mat-form-field>
+    <span class="error" *ngIf="mtt.touched && mtt.invalid">
+      Meeting Topic should not be blank
+    </span>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Number of Participants</mat-label>
+      <input
+        matInput
+        placeholder="Number of Participants"
+        [(ngModel)]="mt.No_of_Persons"
+        name="nopart"
+        #nop="ngModel"
+        required
+      />
+    </mat-form-field>
+    <span class="error" *ngIf="nop.touched && nop.invalid">
+      Number of Participants should not be blank
+    </span>
+
+    <mat-form-field>
+      <mat-label>Start Date Time</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="mt.Start_Date_Time"
+        name="stdate"
+        #sdt="ngModel"
+        required
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+
+      <input
+        matInput
+        [ngxTimepicker]="timepicker"
+        placeholder="HH:mm"
+        [(ngModel)]="selectedTime"
+        name="hr"
+        #hrpro="ngModel"
+        required
+      />
+      <mat-icon matSuffix (click)="timepicker.open()">schedule</mat-icon>
+      <ngx-material-timepicker #timepicker></ngx-material-timepicker>
+    </mat-form-field>
+    <span class="error" *ngIf="sdt.touched && !mt.Start_Date_Time">
+      Choose a Date
+    </span>
+    <span
+      class="error"
+      *ngIf="(hrpro.touched || meetingForm.submitted) && hrpro.invalid"
+    >
+      Select time
+    </span>
+
+    <mat-form-field>
+      <mat-label>Choose Client Name</mat-label>
+      <mat-select
+        [(ngModel)]="mt.ClientID"
+        name="cliname"
+        #cn="ngModel"
+        required
+      >
+        <mat-option *ngFor="let item of clidetails" [value]="item.id">{{
+          item.ClientName
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <span class="error" *ngIf="cn.touched && cn.invalid">
+      Select at least one Client
+    </span>
+
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select
+        [(ngModel)]="mt.Status"
+        name="mtstatus"
+        #mtst="ngModel"
+        required
+      >
+        <mat-option value="Open">Open</mat-option>
+        <mat-option value="Close">Close</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <span class="error" *ngIf="mtst.touched && mtst.invalid">
+      Choose Status
+    </span>
+
+    <div mat-dialog-actions align="end">
+      <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+      <button
+        style="margin-left: 8px"
+        mat-raised-button
+        color="primary"
+        [disabled]="meetingForm.invalid"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

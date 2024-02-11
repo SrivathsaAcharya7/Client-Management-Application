@@ -1,0 +1,183 @@
+{
+  "Clients": [
+    {
+      "id": "1",
+      "ClientName": "John Doe",
+      "Address": "123 Main St",
+      "Email": "john.doe@gmail.com",
+      "Password": "jd12345"
+    },
+    {
+      "id": "2",
+      "ClientName": "Jane Smith",
+      "Address": "456 Oak St",
+      "Email": "jane.smith@gmail.com",
+      "Password": "js45671"
+    },
+    {
+      "id": "3",
+      "ClientName": "Alex Johnson",
+      "Address": "789 Pine St",
+      "Email": "alex.johnson@gmail.com",
+      "Password": "aj78901"
+    },
+    {
+      "id": "4",
+      "ClientName": "Emily Davis",
+      "Address": "101 Cedar St",
+      "Email": "emily.davis@gmail.com",
+      "Password": "ed10111"
+    },
+    {
+      "id": "5",
+      "ClientName": "John Smith",
+      "Address": "205 Oak Ave",
+      "Email": "john.smith@example.com",
+      "Password": "js20522"
+    },
+    {
+      "id": "6",
+      "ClientName": "Sarah Johnson",
+      "Address": "307 Pine St",
+      "Email": "sarah.johnson@example.com",
+      "Password": "sj30733"
+    },
+    {
+      "id": "7",
+      "ClientName": "Michael Brown",
+      "Address": "409 Maple St",
+      "Email": "michael.brown@example.com",
+      "Password": "mb40944"
+    },
+    {
+      "id": "8",
+      "ClientName": "vathsa",
+      "Address": "shimoga",
+      "Email": "sri@gmail.com",
+      "Password": "v11"
+    }
+  ],
+  "Projects": [
+    {
+      "id": "11",
+      "ProjectName": "Library",
+      "Duration": "4 Months",
+      "ClientID": 1
+    },
+    {
+      "id": "12",
+      "ProjectName": "School",
+      "Duration": "3 Months",
+      "ClientID": 2
+    },
+    {
+      "id": "13",
+      "ProjectName": "Hospital Management",
+      "Duration": "6 Months",
+      "ClientID": 3
+    },
+    {
+      "id": "14",
+      "ProjectName": "E-commerce Platform",
+      "Duration": "5 Months",
+      "ClientID": 3
+    },
+    {
+      "id": "15",
+      "ProjectName": "mobile app",
+      "Duration": "3 Months",
+      "ClientID": 3
+    },
+    {
+      "id": "16",
+      "ProjectName": "java",
+      "Duration": "2 Months",
+      "ClientID": "4"
+    },
+    {
+      "id": "17",
+      "ProjectName": "Kotlin",
+      "Duration": "2 Months",
+      "ClientID": "5"
+    }
+  ],
+  "Project_Tasks": [
+    {
+      "id": "101",
+      "TaskName": "User Authentication",
+      "TaskDescription": "Implement a secure user authentication system for the Library project.",
+      "ProjectID": 11
+    },
+    {
+      "id": "102",
+      "TaskName": "Admin Dashboard",
+      "TaskDescription": "Develop an admin dashboard with necessary functionalities for the Library project.",
+      "ProjectID": 11
+    },
+    {
+      "id": "103",
+      "TaskName": "Student Registration",
+      "TaskDescription": "Create a module for student registration for the School project.",
+      "ProjectID": 12
+    },
+    {
+      "id": "104",
+      "TaskName": "Course Management",
+      "TaskDescription": "Implement a course management system for the School project.",
+      "ProjectID": 12
+    },
+    {
+      "id": "105",
+      "TaskName": "Patient Registration Module",
+      "TaskDescription": "Develop a module for registering patients into the Hospital Management system.",
+      "ProjectID": 13
+    },
+    {
+      "id": "106",
+      "TaskName": "Doctor Scheduling System",
+      "TaskDescription": "Create a system for scheduling doctors' appointments and managing their availability.",
+      "ProjectID": 13
+    }
+  ],
+  "Client_Meetings": [
+    {
+      "id": "111",
+      "MeetingTopic": "Project Kickoff",
+      "No_of_Persons": 3,
+      "Start_Date_Time": "07/02/2025 1:00 PM",
+      "ClientID": 2,
+      "Status": "Open"
+    },
+    {
+      "id": "112",
+      "MeetingTopic": "Status Update",
+      "No_of_Persons": 5,
+      "Start_Date_Time": "20/02/2025 1:00 PM",
+      "ClientID": 1,
+      "Status": "Open"
+    },
+    {
+      "id": "113",
+      "MeetingTopic": "Progress Review",
+      "No_of_Persons": 4,
+      "Start_Date_Time": "15/03/2025 2:00 PM",
+      "ClientID": 3,
+      "Status": "Open"
+    },
+    {
+      "id": "114",
+      "MeetingTopic": "Feature Discussion",
+      "No_of_Persons": 6,
+      "Start_Date_Time": "25/03/2025 3:00 PM",
+      "ClientID": 4,
+      "Status": "Open"
+    }
+  ],
+  "Users": [
+    {
+      "id": "1",
+      "UserName": "hr@gmail.com",
+      "Password": "hr@123"
+    }
+  ]
+}

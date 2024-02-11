@@ -1,0 +1,30 @@
+.tab-link {
+  position: relative;
+  padding-bottom: 4px; /* Adjust as needed for underline thickness */
+  text-decoration: none;
+}
+
+.tab-link:hover {
+  background-color: #f0f0f0; /* Background color on hover */
+}
+
+.tab-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Height of underline */
+  background-color: blue; /* Color of underline */
+  transform: scaleX(0); /* Initially scale the underline to 0 */
+  transition: transform 0.3s ease; /* Smooth transition for underline */
+}
+
+.tab-link:hover::after {
+  transform: scaleX(1); /* Scale the underline to full width on hover */
+}
+.tab-link.active-link::after {
+  transform: scaleX(
+    1
+  ); /* Scale the underline to full width on hover and when active */
+}
